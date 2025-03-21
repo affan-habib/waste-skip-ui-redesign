@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface Skip {
   id: number;
@@ -31,7 +32,14 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip, selected, onClick }) => {
             } transition-colors duration-200 border cursor-pointer`}
             onClick={onClick}
           >
-            <img src={`https://picsum.photos/300/200?random=${skip.id}`} alt="Skip" className="rounded-md mb-4 w-full" />
+            <Image
+              src={`https://picsum.photos/300/200?random=${skip.id}`}
+              alt="Skip"
+              className="rounded-md mb-4 w-full"
+              width={300}
+              height={200}
+              style={{ objectFit: 'cover' }}
+            />
             <h2 className="text-lg font-semibold mb-2">{skip.size} Yard Skip</h2>
             <p className="text-gray-400 mb-2">14 day hire period</p>
             <p className="text-2xl font-bold">

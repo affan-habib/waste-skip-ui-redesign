@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import SkipCard from '@/components/SkipCard';
+import SkipCardSkeleton from '@/components/SkipCardSkeleton';
 import Stepper from '@/components/Stepper';
 import { FaMapMarkerAlt, FaRecycle, FaTruck, FaFileAlt, FaCalendarAlt, FaMoneyBillAlt } from 'react-icons/fa';
 import useSkips from '@/hooks/useSkips';
@@ -24,11 +25,17 @@ export default function Home() {
       <header className="bg-white py-4 shadow-md fixed top-0 left-0 w-full z-10 rounded-b-lg dark:bg-gray-800">
         <div className="container mx-auto px-4">
           {/* Stepper */}
-          <Stepper steps={steps} currentStep={0} />
+          <Stepper steps={steps} currentStep={2} />
         </div>
       </header>
-      <main className="container mx-auto px-4 py-30">
-        {isLoading && <div>Loading skips...</div>}
+      <main className="container mx-auto px-4 py-30 max-w-7xl">
+        {isLoading && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[...Array(6)].map((_, index) => (
+              <SkipCardSkeleton key={index} />
+            ))}
+          </div>
+        )}
         {error && <div>Error: {error}</div>}
         {!isLoading && !error && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
