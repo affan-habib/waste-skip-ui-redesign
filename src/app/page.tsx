@@ -58,9 +58,9 @@ export default function Home() {
       <header>
         <Stepper steps={steps} currentStep={2} onStepClick={handleStepClick} isVisible={isVisible} />
       </header>
-      <main className="container mx-auto px-4 pt-32 pb-24 max-w-7xl">
-        <h1 className="text-3xl font-bold text-center text-[var(--foreground)]">Choose Your Skip Size</h1>
-        <p className="text-lg mb-8 text-center text-[var(--foreground)] opacity-80">Select the skip size that best suits your needs</p>
+      <main className="container mx-auto px-4 py-24 max-w-7xl">
+        <h1 className="md:text-3xl text-xl font-bold md:text-center text-[var(--foreground)]">Choose Your Skip Size</h1>
+        <p className="md:text-lg text-sm mb-8 md:text-center text-[var(--foreground)] opacity-80">Select the skip size that best suits your needs</p>
         {isLoading && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[...Array(6)].map((_, index) => (
@@ -88,19 +88,19 @@ export default function Home() {
             <div>
               <div key={selectedSkip.id}>
                 <p className="text-[var(--foreground)]">
-                  {selectedSkip.size} Yard Skip - £{selectedSkip.price_before_vat}
+                  {selectedSkip.size} Yard Skip - <span className="text-[var(--accent)]">£{selectedSkip.price_before_vat}</span>
                 </p>
               </div>
             </div>
             <div>
               <button
-                className="bg-[var(--card-border)] hover:bg-[var(--card-bg)] text-[var(--foreground)] py-2 px-4 rounded-lg mr-4 transition-colors"
+                className="bg-[var(--card-border)] hover:bg-[var(--card-bg)] text-[var(--foreground)] py-2 px-4 rounded-full mr-4 transition-colors"
                 onClick={() => setSelectedSkip(null)}
               >
                 Cancel
               </button>
               <button 
-                className="bg-[var(--accent)] hover:opacity-90 text-white py-2 px-4 rounded-lg transition-colors"
+                className="bg-[var(--accent)] hover:opacity-90 text-white py-2 px-4 rounded-full transition-colors"
                 onClick={() => toast.info("This step is not available right now")}
               >
                 Continue

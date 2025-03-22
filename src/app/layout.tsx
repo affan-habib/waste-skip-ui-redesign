@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Open_Sans, Geist_Mono } from "next/font/google";
+import ThemeToggle from "@/components/ThemeToggle";
+import { Open_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
-import ThemeToggle from "@/components/ThemeToggle";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.variable} antialiased`}>
-        <Toaster position="top-right" closeButton />
+        <Toaster position="top-right" />
         {children}
         <ThemeToggle />
       </body>

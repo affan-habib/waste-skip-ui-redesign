@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaCheck } from 'react-icons/fa';
 
 interface Step {
   label: string;
@@ -67,13 +67,18 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep, onStepClick, isVi
                 setIsDrawerOpen(false);
               }}
               className={`
-                flex items-center space-x-3 px-4 py-3 cursor-pointer
-                ${index === currentStep ? 'text-[var(--accent)] bg-[var(--card-border)]' : 'text-[var(--foreground)] opacity-50'}
+                flex items-center justify-between px-4 py-3 cursor-pointer
+                ${index === currentStep ? 'text-[var(--accent)] bg-[var(--card-border)] font-medium' : 'text-[var(--foreground)]'}
                 hover:bg-[var(--card-border)] transition-colors
               `}
             >
-              {step.icon && <step.icon />}
-              <span>{step.label}</span>
+              <div className="flex items-center space-x-3">
+                {step.icon && <step.icon />}
+                <span>{step.label}</span>
+              </div>
+              {index < currentStep && (
+                <FaCheck className="text-[var(--accent)]" />
+              )}
             </div>
           ))}
         </div>
@@ -114,7 +119,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep, onStepClick, isVi
                 </span>
               </div>
               {index < steps.length - 1 && (
-                <div className={`w-16 h-0.5 ${
+                <div className={`w-10 h-0.5 ${
                   index < currentStep
                     ? 'bg-[var(--accent)]'
                     : 'bg-[var(--card-border)]'
