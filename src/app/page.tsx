@@ -55,8 +55,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <header className={`fixed top-0 left-0 right-0 w-full z-10 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <Stepper steps={steps} currentStep={2} onStepClick={handleStepClick} />
+      <header>
+        <Stepper steps={steps} currentStep={2} onStepClick={handleStepClick} isVisible={isVisible} />
       </header>
       <main className="container mx-auto px-4 pt-32 pb-24 max-w-7xl">
         <h1 className="text-3xl font-bold text-center text-[var(--foreground)]">Choose Your Skip Size</h1>
@@ -99,7 +99,7 @@ export default function Home() {
               >
                 Cancel
               </button>
-              <button
+              <button 
                 className="bg-[var(--accent)] hover:opacity-90 text-white py-2 px-4 rounded-lg transition-colors"
                 onClick={() => toast.info("This step is not available right now")}
               >
