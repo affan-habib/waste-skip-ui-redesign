@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Open_Sans, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${openSans.variable} ${geistMono.variable} antialiased`}>
+        <Toaster position="top-right" closeButton />
         {children}
         <ThemeToggle />
       </body>

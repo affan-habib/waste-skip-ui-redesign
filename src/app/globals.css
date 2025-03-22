@@ -19,6 +19,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-open-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+[role="button"],
+.cursor-pointer {
+  cursor: pointer;
 }

@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SkipCard from '@/components/SkipCard';
 import SkipCardSkeleton from '@/components/SkipCardSkeleton';
 import Stepper from '@/components/Stepper';
 import { FaMapMarkerAlt, FaRecycle, FaTruck, FaFileAlt, FaCalendarAlt, FaMoneyBillAlt } from 'react-icons/fa';
 import useSkips from '@/hooks/useSkips';
 import Skip from '@/types/skip';
+import { toast } from 'sonner';
 
 const steps = [
   { label: 'Postcode', icon: FaMapMarkerAlt },
@@ -20,11 +21,42 @@ const steps = [
 export default function Home() {
   const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
   const [skipData, isLoading, error] = useSkips();
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        // Scrolling up or near top
+        setIsVisible(true);
+      } else {
+        // Scrolling down
+        setIsVisible(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
+  const handleStepClick = (index: number) => {
+    if (index !== 2) {
+      toast.info("This step is not available right now");
+      return;
+    }
+  };
 
   return (
     <div className="min-h-screen">
-      <header className="fixed top-0 left-0 right-0 w-full z-10">
-        <Stepper steps={steps} currentStep={2} />
+      <header className={`fixed top-0 left-0 right-0 w-full z-10 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+        <Stepper steps={steps} currentStep={2} onStepClick={handleStepClick} />
       </header>
       <main className="container mx-auto px-4 pt-32 pb-24 max-w-7xl">
         <h1 className="text-3xl font-bold text-center text-[var(--foreground)]">Choose Your Skip Size</h1>
@@ -67,7 +99,10 @@ export default function Home() {
               >
                 Cancel
               </button>
-              <button className="bg-[var(--accent)] hover:opacity-90 text-white py-2 px-4 rounded-lg transition-colors">
+              <button
+                className="bg-[var(--accent)] hover:opacity-90 text-white py-2 px-4 rounded-lg transition-colors"
+                onClick={() => toast.info("This step is not available right now")}
+              >
                 Continue
               </button>
             </div>
