@@ -1,4 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeWantWaste Skip Redesign
+
+This project is a redesign of a front-end page for WeWantWaste, focusing on improving the look and feel, responsiveness, and UI/UX while keeping the original functionality intact. The goal was to create a clean, maintainable React codebase that displays correctly on both mobile and desktop web browsers.
+
+**Live Demo:** [https://waste-skip-ui-redesign.vercel.app/](https://waste-skip-ui-redesign.vercel.app/)
+
+## Key Features
+
+*   **Modern UI Design:** A visually appealing and user-friendly design.
+*   **Responsive Layout:** Adapts seamlessly to different screen sizes, ensuring a consistent experience on mobile and desktop.
+*   **React & Next.js:** Built with React and Next.js for a fast and efficient user experience.
+*   **Data Fetching:** Uses the WeWantWaste API to populate skip options dynamically.
+*   **Theme Toggle:** Supports both light and dark modes.
+*   **Improved Stepper:** The stepper component has been updated to be fully responsive.
+*   **Mobile Drawer:** In mobile view, the stepper is placed in a drawer. The stepper is hidden on scroll and reappears when scrolling to the top.
+
+## Technologies Used
+
+*   React
+*   Next.js
+*   TypeScript
+*   Tailwind CSS
+*   Vercel
+
+## Approach
+
+1.  **Understanding the Requirements:** Analyzed the original page and the requirements outlined in the task description.
+2.  **UI/UX Design:** Created a new design that improves the user experience and visual appeal.
+3.  **Component Development:** Developed reusable React components for the skip options, stepper, and other UI elements.
+4.  **Responsiveness:** Implemented a responsive layout using Tailwind CSS to ensure the page displays correctly on different screen sizes.
+5.  **API Integration:** Integrated with the WeWantWaste API to fetch skip data dynamically.
+6.  **Deployment:** Deployed the application to Vercel for easy access and testing.
+
+## Folder Structure
+
+```
+my-skip-app/
+├── .git/
+├── .next/
+├── src/
+│   ├── app/
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   │   └── __tests__/
+│   ├── components/
+│   │   ├── SkipCard.tsx
+│   │   ├── SkipCardSkeleton.tsx
+│   │   ├── Stepper.tsx
+│   │   └── ThemeToggle.tsx
+│   │   └── Stepper/
+│   │   └── ThemeToggle/
+│   ├── hooks/
+│   │   └── useSkips.ts
+│   ├── types/
+│   │   └── skip.ts
+│   └── utils/
+├── .gitignore
+├── eslint.config.mjs
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+└── tsconfig.json
+```
+
+*   `src/app`: Contains the main application components and routing.
+*   `src/components`: Includes reusable UI components like `SkipCard`, `Stepper`, and `ThemeToggle`.
+*   `src/hooks`: Contains custom hooks, such as `useSkips`.
+*   `src/types`: Defines TypeScript types for the project.
+*   `src/utils`: Includes utility functions.
 
 ## Getting Started
 
@@ -19,18 +91,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
