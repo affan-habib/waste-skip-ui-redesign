@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Skip from '@/types/skip';
+import { toast } from 'sonner';
 
 const API_URL = process.env.API_URL || 'https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft';
 
@@ -24,7 +25,11 @@ function useSkips(): [Skip[], boolean, string | null] {
         const data = await fetchSkips();
         setSkipData(data);
       } catch (e: unknown) {
-        setError((e as Error).message);
+        const errorMessage = (e as Error).message;
+        setError(errorMessage);
+        toast.error('Failed to fetch skips', {
+          description: errorMessage,
+        });
       } finally {
         setIsLoading(false);
       }

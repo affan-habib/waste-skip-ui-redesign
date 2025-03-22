@@ -22,16 +22,13 @@ export default function Home() {
   const [skipData, isLoading, error] = useSkips();
 
   return (
-    <div className="bg-gray-100 min-h-screen dark:bg-gray-900">
-      <header className="bg-white py-4 border-b border-gray-800 fixed top-0 left-0 right-0 w-full z-10  dark:bg-gray-900">
-        <div>
-          {/* Stepper */}
-          <Stepper steps={steps} currentStep={2} />
-        </div>
+    <div className="min-h-screen">
+      <header className="fixed top-0 left-0 right-0 w-full z-10">
+        <Stepper steps={steps} currentStep={2} />
       </header>
-      <main className="container mx-auto px-4 py-30 max-w-7xl">
-        <h1 className="text-3xl font-bold text-center dark:text-white">Choose Your Skip Size</h1>
-        <p className="text-lg mb-8 text-center dark:text-gray-300">Select the skip size that best suits your needs</p>
+      <main className="container mx-auto px-4 pt-32 pb-24 max-w-7xl">
+        <h1 className="text-3xl font-bold text-center text-[var(--foreground)]">Choose Your Skip Size</h1>
+        <p className="text-lg mb-8 text-center text-[var(--foreground)] opacity-80">Select the skip size that best suits your needs</p>
         {isLoading && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[...Array(6)].map((_, index) => (
@@ -39,7 +36,7 @@ export default function Home() {
             ))}
           </div>
         )}
-        {error && <div>Error: {error}</div>}
+        {error && <div className="text-red-600 dark:text-red-400 text-center">Error: {error}</div>}
         {!isLoading && !error && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {skipData.map((skip) => (
@@ -54,23 +51,25 @@ export default function Home() {
         )}
       </main>
       {selectedSkip !== null && (
-        <footer className="bg-gray-800 py-4 fixed bottom-0 left-0 w-full">
+        <footer className="bg-[var(--card-bg)] py-4 fixed bottom-0 left-0 w-full border-t border-[var(--card-border)]">
           <div className="container mx-auto px-4 flex justify-between items-center">
             <div>
               <div key={selectedSkip.id}>
-                <p className="text-white">
+                <p className="text-[var(--foreground)]">
                   {selectedSkip.size} Yard Skip - £{selectedSkip.price_before_vat}
                 </p>
               </div>
             </div>
             <div>
               <button
-                className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg mr-4"
+                className="bg-[var(--card-border)] hover:bg-[var(--card-bg)] text-[var(--foreground)] py-2 px-4 rounded-lg mr-4 transition-colors"
                 onClick={() => setSelectedSkip(null)}
               >
                 Cancel
               </button>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Continue</button>
+              <button className="bg-[var(--accent)] hover:opacity-90 text-white py-2 px-4 rounded-lg transition-colors">
+                Continue
+              </button>
             </div>
           </div>
         </footer>

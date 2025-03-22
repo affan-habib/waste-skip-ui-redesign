@@ -27,8 +27,9 @@ interface SkipCardProps {
 const SkipCard: React.FC<SkipCardProps> = ({ skip, selected, onClick }) => {
   return (
     <div
-      className={`bg-gray-800 rounded-lg shadow-md p-6 w-full ${selected ? 'border-blue-500 border-2' : 'border-transparent'
-        } transition-colors duration-200 border cursor-pointer`}
+      className={`bg-[var(--card-bg)] rounded-lg shadow-md p-6 w-full ${
+        selected ? 'border-[var(--accent)] border-2' : 'border-[var(--card-border)]'
+      } transition-colors duration-200 border cursor-pointer hover:border-[var(--accent)]`}
       onClick={onClick}
     >
       <Image
@@ -39,10 +40,10 @@ const SkipCard: React.FC<SkipCardProps> = ({ skip, selected, onClick }) => {
         height={200}
         style={{ objectFit: 'cover' }}
       />
-      <h2 className="text-lg font-semibold mb-2">{skip.size} Yard Skip</h2>
-      <p className="text-gray-400 mb-2">14 day hire period</p>
-      <p className="text-2xl font-bold">
-        £{skip.price_before_vat} <span className="text-sm">/ week</span>
+      <h2 className="text-lg font-semibold mb-2 text-[var(--foreground)]">{skip.size} Yard Skip</h2>
+      <p className="text-[var(--foreground)] opacity-60 mb-2">14 day hire period</p>
+      <p className="text-2xl font-bold text-[var(--foreground)]">
+        £{skip.price_before_vat} <span className="text-sm text-[var(--foreground)] opacity-60">/ week</span>
       </p>
     </div>
   );
