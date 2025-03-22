@@ -10,11 +10,6 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   title: "Business Skip Hire",
   description: "Professional skip hire services for businesses",
@@ -27,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${openSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${openSans.variable} antialiased`}>
         <Toaster position="top-right" closeButton />
         {children}
         <ThemeToggle />
