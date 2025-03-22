@@ -13,6 +13,7 @@ This project is a redesign of a front-end page for WeWantWaste, focusing on impr
 *   **Theme Toggle:** Supports both light and dark modes.
 *   **Improved Stepper:** The stepper component has been updated to be fully responsive.
 *   **Mobile Drawer:** In mobile view, the stepper is placed in a drawer. The stepper is hidden on scroll and reappears when scrolling to the top.
+*   **Testing:** Includes unit tests for key components.
 
 ## Technologies Used
 
@@ -21,6 +22,8 @@ This project is a redesign of a front-end page for WeWantWaste, focusing on impr
 *   TypeScript
 *   Tailwind CSS
 *   Vercel
+*   Jest
+*   @testing-library/react
 
 ## Approach
 
@@ -29,7 +32,8 @@ This project is a redesign of a front-end page for WeWantWaste, focusing on impr
 3.  **Component Development:** Developed reusable React components for the skip options, stepper, and other UI elements.
 4.  **Responsiveness:** Implemented a responsive layout using Tailwind CSS to ensure the page displays correctly on different screen sizes.
 5.  **API Integration:** Integrated with the WeWantWaste API to fetch skip data dynamically.
-6.  **Deployment:** Deployed the application to Vercel for easy access and testing.
+6.  **Testing:** Implemented unit tests using Jest and @testing-library/react.
+7.  **Deployment:** Deployed the application to Vercel for easy access and testing.
 
 ## Folder Structure
 
@@ -42,20 +46,21 @@ my-skip-app/
 │   │   ├── favicon.ico
 │   │   ├── globals.css
 │   │   ├── layout.tsx
-│   │   └── page.tsx
-│   │   └── __tests__/
+│   │   ├── page.tsx
+│   │   └── not-found.tsx
 │   ├── components/
 │   │   ├── SkipCard.tsx
 │   │   ├── SkipCardSkeleton.tsx
 │   │   ├── Stepper.tsx
 │   │   └── ThemeToggle.tsx
-│   │   └── Stepper/
-│   │   └── ThemeToggle/
 │   ├── hooks/
 │   │   └── useSkips.ts
 │   ├── types/
 │   │   └── skip.ts
 │   └── utils/
+├── tests/
+│   ├── SkipCard.test.tsx
+│   └── Stepper.test.tsx
 ├── .gitignore
 ├── eslint.config.mjs
 ├── next.config.ts
@@ -71,6 +76,7 @@ my-skip-app/
 *   `src/hooks`: Contains custom hooks, such as `useSkips`.
 *   `src/types`: Defines TypeScript types for the project.
 *   `src/utils`: Includes utility functions.
+*   `tests`: Contains unit tests for the components.
 
 ## Getting Started
 
