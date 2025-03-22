@@ -1,39 +1,49 @@
 # WeWantWaste Skip Redesign
 
-This project is a redesign of a front-end page for WeWantWaste, focusing on improving the look and feel, responsiveness, and UI/UX while keeping the original functionality intact. The goal was to create a clean, maintainable React codebase that displays correctly on both mobile and desktop web browsers.
+This project is a redesigned front-end page for WeWantWaste with a focus on modern UI, responsive layouts, and improved user experience—all while retaining the original functionality. The redesign features enhanced skip option cards with zoomed-in images (using a dummy Picsum API), dark/light mode support, and a mobile-optimized stepper implemented as a drawer for easy navigation.
 
-**Live Demo:** [https://waste-skip-ui-redesign.vercel.app/](https://waste-skip-ui-redesign.vercel.app/)
+## Live Demo
+
+[https://waste-skip-ui-redesign.vercel.app/](https://waste-skip-ui-redesign.vercel.app/)
 
 ## Key Features
 
-*   **Modern UI Design:** A visually appealing and user-friendly design.
-*   **Responsive Layout:** Adapts seamlessly to different screen sizes, ensuring a consistent experience on mobile and desktop.
-*   **React & Next.js:** Built with React and Next.js for a fast and efficient user experience.
-*   **Data Fetching:** Uses the WeWantWaste API to populate skip options dynamically.
-*   **Theme Toggle:** Supports both light and dark modes.
-*   **Improved Stepper:** The stepper component has been updated to be fully responsive.
-*   **Mobile Drawer:** In mobile view, the stepper is placed in a drawer. The stepper is hidden on scroll and reappears when scrolling to the top.
-*   **Testing:** Includes unit tests for key components.
+- **Modern UI Design:** A clean, maintainable React codebase with a fresh visual approach.
+- **Responsive Layout:** Seamlessly adapts across mobile and desktop screens.
+- **Mobile-Optimized Stepper:** The stepper is implemented as a drawer on mobile, allowing for easy navigation between steps. It hides during scroll and reappears when scrolling up, improving navigation and user experience.
+- **Dark/Light Mode Support:** Easily switch between dark and light themes.
+- **Enhanced Skip Cards:** Redesigned cards featuring zoomed-in images (using a dummy Picsum API) with a simplified layout that removes redundant selection buttons.
+- **Data-Driven:** Dynamically populated skip options via the WeWantWaste API.
+- **Testing:** Unit tests with Jest and @testing-library/react ensure component reliability.
+
+## Improvement Areas
+
+- **Mobile Navigation:** Introduced a drawer approach for the stepper on mobile devices to enhance navigation and maximize screen real estate.
+- **UI/UX Enhancements:** Redesigned skip cards to display zoomed-in images and removed redundant buttons for a cleaner interface.
+- **Theme Customization:** Integrated dark/light mode toggling to improve accessibility and user preference support.
+- **Performance Optimization:** Refactored component structure and optimized API integration for faster load times and a smoother experience.
+- **Code Maintainability:** Streamlined codebase structure for improved readability and scalability.
+- **Testing:** Expanded test coverage to ensure robust functionality across key components.
 
 ## Technologies Used
 
-*   React
-*   Next.js
-*   TypeScript
-*   Tailwind CSS
-*   Vercel
-*   Jest
-*   @testing-library/react
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Vercel
+- Jest
+- @testing-library/react
 
 ## Approach
 
-1.  **Understanding the Requirements:** Analyzed the original page and the requirements outlined in the task description.
-2.  **UI/UX Design:** Created a new design that improves the user experience and visual appeal.
-3.  **Component Development:** Developed reusable React components for the skip options, stepper, and other UI elements.
-4.  **Responsiveness:** Implemented a responsive layout using Tailwind CSS to ensure the page displays correctly on different screen sizes.
-5.  **API Integration:** Integrated with the WeWantWaste API to fetch skip data dynamically.
-6.  **Testing:** Implemented unit tests using Jest and @testing-library/react.
-7.  **Deployment:** Deployed the application to Vercel for easy access and testing.
+1. **Requirement Analysis:** Reviewed the original page and task description to identify necessary improvements.
+2. **UI/UX Redesign:** Crafted a modern design that enhances visual appeal and usability.
+3. **Component Development:** Built reusable React components for skip options, stepper, and theme toggle.
+4. **Responsive Design:** Leveraged Tailwind CSS to create a fluid layout across devices. Implemented a drawer for the stepper on mobile devices for easier navigation.
+5. **API Integration:** Integrated the WeWantWaste API for dynamic data fetching.
+6. **Testing:** Added unit tests to secure component functionality and ensure a stable user experience.
+7. **Deployment:** Deployed on Vercel for streamlined access and continuous integration.
 
 ## Folder Structure
 
@@ -96,4 +106,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Open Sans](https://vercel.com/font), a new font family for Vercel.
